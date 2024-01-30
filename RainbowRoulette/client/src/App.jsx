@@ -5,7 +5,8 @@ import './App.css'
 import { useState } from 'react'
 
 function App() {
-  var [op, setOp] = useState("Not Available" || op)
+  var [op, setOp] = useState("Please Choose an Operator" || op)
+  const [c, setColor] = useState()
 
 
   //* MIXED LIST
@@ -162,6 +163,10 @@ function App() {
     console.log(list[a])
     // alert(a)
     setOp(list[a])
+
+    var hex = '#' + Math.floor(Math.random()*16777215).toString(16);
+    setColor(hex)
+    console.log(c)
   }
 
   const DRandomOp = () => {
@@ -169,6 +174,10 @@ function App() {
     console.log(dlist[a])
     // alert(a)
     setOp(dlist[a])
+
+    var hex = '#' + Math.floor(Math.random()*16777215).toString(16);
+    setColor(hex)
+    console.log(c)
   }
 
   const ARandomOp = () => {
@@ -176,11 +185,15 @@ function App() {
     console.log(alist[a])
     // alert(a)
     setOp(alist[a])
+
+    var hex = '#' + Math.floor(Math.random()*16777215).toString(16);
+    setColor(hex)
+    console.log(c)
   }
 
   return (
-    <div>
-      <h1>Your Operator Is {op}</h1>
+    <div className='main'>
+      <h1 style={{color: `${c}`}}>{op}</h1>
     <button onClick={RandomOp}>Click to choose random operator</button>
     <button onClick={ARandomOp}>Click to choose random Attacker</button>
     <button onClick={DRandomOp}>Click to choose random Defender</button>
