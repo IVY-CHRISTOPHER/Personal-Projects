@@ -3,12 +3,12 @@ import './App.css'
 
 //* Imports
 import { useState } from 'react'
+import './assets/';
 
 function App() {
   var [op, setOp] = useState("Please Choose an Operator" || op)
   const [c, setColor] = useState()
-
-
+  
   //* MIXED LIST
   const list = [" ",
   "RAM",
@@ -193,10 +193,10 @@ function App() {
 
   return (
     <div className='main'>
-      <h1 style={{color: `${c}`}}>{op}</h1>
-    <button onClick={RandomOp}>Click to choose random operator</button>
-    <button onClick={ARandomOp}>Click to choose random Attacker</button>
-    <button onClick={DRandomOp}>Click to choose random Defender</button>
+      <h1 style={{ color: `${c}` }}>{op}</h1>
+      <button onClick={RandomOp}>Click to choose random operator</button>
+      <button onClick={ARandomOp}>Click to choose random Attacker</button>
+      <button onClick={DRandomOp}>Click to choose random Defender</button>
     </div>
   )
 }
