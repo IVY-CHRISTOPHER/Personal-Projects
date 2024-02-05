@@ -6,12 +6,20 @@ const Dashboard = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const randPokeNum = Math.floor(Math.random() * (152 - 1) + 1);
     axios
-      // Unsure how to grab random pokemon due to the id system. Looking into it.
-      .get("https://api.pokemontcg.io/v2/cards?q=number:1&pageSize=1")
+      .get(
+        `https://api.pokemontcg.io/v2/cards?q=nationalPokedexNumbers:${randPokeNum}&orderBy=name`
+      )
       .then((res) => {
-        console.log(res.data.data[0]);
-        setPokeData(res.data.data[0]);
+        const randIndex = Math.floor(Math.random() * res.data.data.length);
+        // Displays return list
+        console.log(res.data.data);
+        // Displays chosen from list
+        console.log(res.data.data[randIndex]);
+        // Displays pokeDex number and index chosen
+        console.log(`PokeDex Number: ${randPokeNum}`, `Index: ${randIndex}`);
+        setPokeData(res.data.data[randIndex]);
       })
       .catch((err) => console.log(err));
   };
